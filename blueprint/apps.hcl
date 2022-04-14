@@ -5,18 +5,18 @@ k8s_config "keycloak" {
 
   health_check {
     timeout = "300s"
-    pods    = ["app.kubernetes.io/name=keycloak"]
+    pods    = ["app=keycloak"]
   }
 }
 
-k8s_ingress "app" {
+k8s_ingress "keycloak" {
   cluster = "k8s_cluster.k8s"
 
   network {
     name = "network.local"
   }
 
-  deployment = "keycloak"
+  deployment = "keycloak-deployment"
 
   port {
     local           = 8080
