@@ -1,0 +1,12 @@
+{
+    "clientId": "kong",
+    "rootUrl": "http://keycloak.ingress.shipyard.run:8080",
+    "clientAuthenticatorType": "client-secret",
+    "redirectUris": [
+        "/mock/*"
+    ],
+    "directAccessGrantsEnabled": true,
+    "attributes": {
+        "backchannel.logout.session.required": "true"
+    }
+}
