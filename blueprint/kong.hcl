@@ -10,7 +10,7 @@ helm "kong" {
   version = "2.7.0"
 
   values_string = {
-      "image.repository" = "shipyard.run/localcache/build"
+      "image.repository" = "shipyard.run/localcache/kong-oidc"
       "image.tag" = "latest"
   }
 }
