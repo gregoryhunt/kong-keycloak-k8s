@@ -1,3 +1,0 @@
-[submodule "blueprint/kong-oidc"]
-	path = blueprint/kong-oidc
-	url = https://github.com/nokia/kong-oidc.git
