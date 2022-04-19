@@ -8,4 +8,9 @@ helm "kong" {
 
   chart   = "kong/kong"
   version = "2.7.0"
+
+  values_string = {
+      "image.repository" = "shipyard.run/localcache/build"
+      "image.tag" = "latest"
+  }
 }
