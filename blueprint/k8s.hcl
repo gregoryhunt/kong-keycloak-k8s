@@ -1,4 +1,7 @@
 k8s_cluster "k8s" {
+
+  depends_on = ["container.kong-oidc"]
+
   driver = "k3s"
 
   nodes = 1
