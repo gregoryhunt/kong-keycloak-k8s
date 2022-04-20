@@ -1,0 +1,27 @@
+---
+
+name: Test Blueprints
+on:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  test:
+    name: Test Blueprints
+    runs-on: ubuntu-latest
+    continue-on-error: true
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 3
+
+      - name: Get dependencies
+        run: |
+          curl https://shipyard.run/install | bash
+
+      - name: Run tests
+        run: |
+          shipyard test ./blueprint
