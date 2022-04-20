@@ -50,7 +50,7 @@ exec_remote "keycloak_config" {
 
   env {
     key   = "KEYCLOAK_URL"
-    value = "${shipyard_ip()}:8080"
+    value = "host.docker.internal:8080"
   }
 
 }
