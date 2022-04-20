@@ -9,28 +9,29 @@ k8s_config "keycloak" {
   }
 }
 
-k8s_ingress "keycloak" {
-  depends_on = ["k8s_config.keycloak"]
+ingress "keycloak" {
+  source {
+    driver = "local"
 
-  cluster = "k8s_cluster.k8s"
-
-  network {
-    name = "network.local"
+    config {
+      port = 8080
+    }
   }
 
-  deployment = "keycloak-deployment"
+  destination {
+    driver = "k8s"
 
-  port {
-    local           = 8080
-    remote          = 8080
-    host            = 8080
-    open_in_browser = "/"
+    config {
+      cluster         = "k8s_cluster.k8s"
+      address         = "keycloak.default.svc"
+      port            = 8080
+      open_in_browser = "/"
+    }
   }
-
 }
 
 exec_remote "keycloak_config" {
-  depends_on = ["k8s_ingress.keycloak"]
+  depends_on = ["k8s_config.keycloak"]
 
   image {
     name = "rancher/curl"
@@ -49,7 +50,7 @@ exec_remote "keycloak_config" {
 
   env {
     key   = "KEYCLOAK_URL"
-    value = "host.docker.internal:8080"
+    value = "${shipyard_ip()}:8080"
   }
 
 }
