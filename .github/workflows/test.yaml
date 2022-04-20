@@ -22,6 +22,6 @@ jobs:
         run: |
           curl https://shipyard.run/install | bash
 
-      - name: Run tests - ${{ matrix.blueprint }}
+      - name: Run tests
         run: |
           shipyard test ./blueprint
