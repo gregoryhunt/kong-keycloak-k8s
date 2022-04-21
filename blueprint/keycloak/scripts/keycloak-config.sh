@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #KEYCLOAK_URL=http://keycloak.ingress.shipyard.run:8080
-KEYCLOAK_URL=host.docker.internal:8080
+#KEYCLOAK_URL=host.docker.internal:8080
 
 apk update && apk --no-progress add jq
 

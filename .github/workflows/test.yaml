@@ -10,7 +10,6 @@ jobs:
   test:
     name: Test Blueprints
     runs-on: ubuntu-latest
-    continue-on-error: true
 
     steps:
       - name: Check out code
